@@ -29,7 +29,7 @@ or does not set the value to enable it.
       enabled  => 1,
       descr    => 'Local repo holding company application packages',
       baseurl  => 'http://repos.example.org/apps',
-   }
+    }
 
 This example is missing `gpgcheck` and will return
 
