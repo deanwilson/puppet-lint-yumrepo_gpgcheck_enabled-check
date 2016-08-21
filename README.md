@@ -1,4 +1,4 @@
-# puppet-lint yumrepo_gpgcheck_enabled check #
+# puppet-lint yumrepo_gpgcheck_enabled check
 
 A puppet-lint extension that ensures yumrepo resources have the gpgcheck
 attribute and that it is enabled.
@@ -11,7 +11,7 @@ any packages from your configured repo, not just those signed by the
 packagers. While it's often more work to sign your own packages you should
 at the very least enable it for all upstream yum repositories.
 
-## Installation ##
+## Installation
 
 To use this plugin add the following line to your Gemfile
 
@@ -19,7 +19,7 @@ To use this plugin add the following line to your Gemfile
 
 and then run `bundle install`
 
-## Usage ##
+## Usage
 
 This plugin provides a new check to `puppet-lint` that warns if it finds
 a `yumrepo` resource that either does not contain the `gpgcheck` attribute
@@ -48,5 +48,10 @@ and will return
 
     yumrepo should enable the gpgcheck attribute
 
-### Author ###
+## Other puppet-lint plugins
+
+You can find a list of my `puppet-lint` plugins in the
+[unixdaemon puppet-lint-plugins](https://github.com/deanwilson/unixdaemon-puppet-lint-plugins) repo
+
+### Author
 [Dean Wilson](http://www.unixdaemon.net)
