@@ -20,7 +20,7 @@ PuppetLint.new_check(:yumrepo_gpgcheck_enabled) do
           setting = content_token.next_code_token.next_code_token
 
           # skip if valid. we only care about broken settings.
-          next if ['True', 1, '1', 'Yes'].include? setting.value
+          next if ['true', 1, '1', 'yes'].include? setting.value
 
           notify :warning, {
             message: 'yumrepo should enable the gpgcheck attribute',
