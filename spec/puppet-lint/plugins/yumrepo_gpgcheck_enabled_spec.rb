@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'yumrepo_gpgcheck_enabled' do
   context 'yumrepo with enabled gpgcheck' do
     let(:code) do
-      <<-EOS
+      <<-TEST_CLASS
         class yum_gpgenabled {
           yumrepo { 'company_app_repo':
             enabled  => 1,
@@ -12,7 +12,7 @@ describe 'yumrepo_gpgcheck_enabled' do
             gpgcheck => 1,
           }
         }
-      EOS
+      TEST_CLASS
     end
 
     it 'should not detect any problems' do
@@ -24,7 +24,7 @@ describe 'yumrepo_gpgcheck_enabled' do
     let(:absent_msg) { 'yumrepo should have the gpgcheck attribute' }
 
     let(:code) do
-      <<-EOS
+      <<-TEST_CLASS
         class yum_gpgenabled {
           yumrepo { 'company_app_repo':
             enabled  => 1,
@@ -32,7 +32,7 @@ describe 'yumrepo_gpgcheck_enabled' do
             baseurl  => 'http://repos.example.org/apps',
           }
         }
-      EOS
+      TEST_CLASS
     end
 
     it 'should detect a problem' do
@@ -48,7 +48,7 @@ describe 'yumrepo_gpgcheck_enabled' do
     let(:enable_msg) { 'yumrepo should enable the gpgcheck attribute' }
 
     let(:code) do
-      <<-EOS
+      <<-TEST_CLASS
         class yum_gpgenabled {
           yumrepo { 'company_app_repo':
             enabled  => 1,
@@ -57,7 +57,7 @@ describe 'yumrepo_gpgcheck_enabled' do
             gpgcheck => 0,
           }
         }
-      EOS
+      TEST_CLASS
     end
 
     it 'should detect a problem' do

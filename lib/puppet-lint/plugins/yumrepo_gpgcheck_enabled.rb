@@ -14,9 +14,9 @@ PuppetLint.new_check(:yumrepo_gpgcheck_enabled) do
 
       else # we have at least one gpgcheck - check it's enabled
 
-        resource[:param_tokens].select { |param_token|
-          param_token.value == 'gpgcheck'
-        }.each do |content_token|
+        content_tokens = resource[:param_tokens].select { |pt| pt.value == 'gpgcheck' }
+
+        content_tokens.each do |content_token|
           setting = content_token.next_code_token.next_code_token
 
           # skip if valid. we only care about broken settings.
@@ -27,7 +27,6 @@ PuppetLint.new_check(:yumrepo_gpgcheck_enabled) do
             line:    setting.line,
             column:  setting.column,
           }
-
         end
       end
     end
