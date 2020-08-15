@@ -15,7 +15,7 @@ describe 'yumrepo_gpgcheck_enabled' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'dies not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
@@ -35,11 +35,11 @@ describe 'yumrepo_gpgcheck_enabled' do
       TEST_CLASS
     end
 
-    it 'should detect a problem' do
+    it 'detects a problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(absent_msg).on_line(2).in_column(11)
     end
   end
@@ -60,11 +60,11 @@ describe 'yumrepo_gpgcheck_enabled' do
       TEST_CLASS
     end
 
-    it 'should detect a problem' do
+    it 'detects a problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(enable_msg).on_line(6).in_column(25)
     end
   end
