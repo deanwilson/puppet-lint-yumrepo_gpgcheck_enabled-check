@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'yumrepo_gpgcheck_enabled' do
-  context 'yumrepo with enabled gpgcheck' do
+  context 'when a yumrepo has gpgcheck enabled' do
     let(:code) do
       <<-TEST_CLASS
         class yum_gpgenabled {
@@ -15,12 +15,12 @@ describe 'yumrepo_gpgcheck_enabled' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'dies not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
 
-  context 'yumrepo without gpgcheck attribute' do
+  context 'when a yumrepo lacks a gpgcheck attribute' do
     let(:absent_msg) { 'yumrepo should have the gpgcheck attribute' }
 
     let(:code) do
@@ -35,16 +35,16 @@ describe 'yumrepo_gpgcheck_enabled' do
       TEST_CLASS
     end
 
-    it 'should detect a problem' do
+    it 'detects a problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(absent_msg).on_line(2).in_column(11)
     end
   end
 
-  context 'yumrepo with disabled gpgcheck' do
+  context 'when a yumrepo has gpgcheck disabled' do
     let(:enable_msg) { 'yumrepo should enable the gpgcheck attribute' }
 
     let(:code) do
@@ -60,11 +60,11 @@ describe 'yumrepo_gpgcheck_enabled' do
       TEST_CLASS
     end
 
-    it 'should detect a problem' do
+    it 'detects a problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(enable_msg).on_line(6).in_column(25)
     end
   end

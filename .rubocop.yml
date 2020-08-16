@@ -25,3 +25,10 @@ Metrics/AbcSize:
 
 Metrics/CyclomaticComplexity:
   Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+  IgnoredMethods: ["check"]
+
+RSpec/DescribeClass:
+  Enabled: false
