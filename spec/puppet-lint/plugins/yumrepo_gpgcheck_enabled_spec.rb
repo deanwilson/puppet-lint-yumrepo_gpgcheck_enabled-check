@@ -1,6 +1,22 @@
 require 'spec_helper'
 
 describe 'yumrepo_gpgcheck_enabled' do
+  context 'without yumrepo resources in manifest' do
+    let(:code) do
+      <<-TEST_CLASS
+        class file_resource {
+          file { '/tmp/my-file':
+            mode => '0600',
+          }
+        }
+      TEST_CLASS
+    end
+
+    it 'does not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
+
   context 'when a yumrepo has gpgcheck enabled' do
     let(:code) do
       <<-TEST_CLASS
