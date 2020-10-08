@@ -3,7 +3,7 @@
 A puppet-lint extension that ensures yumrepo resources have the gpgcheck
 attribute and that it is enabled.
 
-[![Build Status](https://travis-ci.org/deanwilson/puppet-lint-yumrepo_gpgcheck_enabled-check.svg?branch=master)](https://travis-ci.org/deanwilson/puppet-lint-yumrepo_gpgcheck_enabled-check)
+[![Build Status](https://travis-ci.org/deanwilson/puppet-lint-yumrepo_gpgcheck_enabled-check.svg?branch=main)](https://travis-ci.org/deanwilson/puppet-lint-yumrepo_gpgcheck_enabled-check)
 
 The `gpgcheck` attribute indicates if `yum` should perform a GPG
 signature check on packages. Having this disabled means you'll accept
